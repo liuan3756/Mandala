@@ -33,7 +33,6 @@
             android:src="@drawable/gear23" />
     </RelativeLayout>
 
-
     <!--<com.example.circle.DrawView-->
     <!--android:id="@+id/dv_show"-->
     <!--android:layout_width="match_parent"-->
