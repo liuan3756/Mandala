@@ -26,7 +26,6 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -68,7 +67,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         img_settings = (ImageView) findViewById(R.id.img_settings);
         img_settings.setOnClickListener(this);
         img_colorpick.setOnClickListener(this);
-        checkPremission();
+        doNext();
+//        checkPremission();
 
     }
 
@@ -185,17 +185,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     private void init() {
-//        int www = Math.max(width, height);
+        int www = Math.max(width, height);
         baseBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         // 创建一张画布
         canvas = new Canvas(baseBitmap);
-        // 画布背景为灰色
+        // 画布背景为白色
         canvas.drawColor(Color.WHITE);
         // 创建画笔
         paint = new Paint();
-        // 画笔颜色为红色
-        paint.setColor(Color.BLACK);
-        // 宽度5个像素
+        // 宽度1个像素
         paint.setStrokeWidth(1);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
