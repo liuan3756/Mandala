@@ -1,9 +1,8 @@
 package com.example.circle;
 
-import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.pm.PackageManager;
+import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,9 +14,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -68,7 +65,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         img_settings.setOnClickListener(this);
         img_colorpick.setOnClickListener(this);
         doNext();
-//        checkPremission();
 
     }
 
@@ -90,22 +86,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         });
     }
 
-    private void checkPremission() {
-        // 应用的授权处理
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-                        != PackageManager.PERMISSION_GRANTED) {
-            //申请WRITE_EXTERNAL_STORAGE权限
-            //和读取手机信息的权限
-            ActivityCompat.requestPermissions(this, new String[]{
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_PHONE_STATE},
-                    WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
-        } else {
-            doNext();
-        }
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
